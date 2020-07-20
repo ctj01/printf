@@ -26,16 +26,15 @@ int prints_char(va_list s)
 	unsigned int i = 0;
 	char *string = va_arg(s, char *);
 
-	if (string)
-	{
-		while (string[i])
-		{
-			_putchar(string[i]);
-			i++;
-		}
-	}
 	if (string == NULL)
+	{
 		string = "(null)";
+	}
+	while (string[i])
+	{
+		_putchar(string[i]);
+		i++;
+	}
 	return (i);
 
 }
