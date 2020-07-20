@@ -99,8 +99,6 @@ int _check_arg(const char *format, ...)
 			con += flag(list);
 			i++;
 		}
-		if (!format[i + 1])
-			return (-1);
 		con++;
 		i++;
 	}
