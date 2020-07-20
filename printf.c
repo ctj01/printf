@@ -10,8 +10,8 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int count = 0;
+	unsigned int con = 0;
 
-	count = _check_arg(format);
-	return (count);
+	con = _check_arg(format);
+	return (con);
 }
