@@ -11,8 +11,8 @@ int print_character(va_list c)
 {
 	char character = va_arg(c, int);
 
-	if(character == NULL)
-		return (NULL);
+	if(character == '\0')
+		return (-1);
 
 	_putchar(character);
 	return (1);
