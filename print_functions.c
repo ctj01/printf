@@ -97,6 +97,7 @@ int _check_arg(const char *format, ...)
 		if (flag != NULL)
 		{
 			con += flag(list);
+			i++;
 		}
 		con++;
 		i++;
