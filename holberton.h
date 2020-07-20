@@ -8,6 +8,7 @@
  * @c: print placeholder
  * @placeholder: print function
  */
+
 typedef struct _print
 {
 	char *c;
