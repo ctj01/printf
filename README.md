@@ -44,7 +44,7 @@ The length modifier
 
 Here, "integer conversion" stands for d, i, o, u, x, or X conversion.
 hh
-A following integer conversion corresponds to a signed char or unsigned char argument, or a following n conversion corresponds to a pointer to a signed char argument.
+A following integer conversion corresponds to a signed char or unsigned char argument, or  following n conversion corresponds to a pointer to a signed char argument.
 
 h
 
