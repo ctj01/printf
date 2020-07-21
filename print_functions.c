@@ -99,6 +99,8 @@ int _check_arg(const char *format, ...)
 		{
 			if (format[i + 1] != '\0')
 				flag = _iSplaceholder(&format[i + 1]);
+			else
+				return (-1);
 		}
 		if (flag != NULL)
 		{
