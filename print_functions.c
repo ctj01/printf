@@ -98,7 +98,7 @@ int _check_arg(const char *format, ...)
 		if (format[i + 1])
 			flag = _iSplaceholder(&format[i + 1]);
 		else
-			return (-1);
+			return (count);
 		if (flag != NULL)
 		{
 			count += flag(list);
