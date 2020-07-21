@@ -97,7 +97,7 @@ int _check_arg(const char *format, ...)
 			return (count);
 		if (format[i] == '%')
 		{
-			if (format[i + 1] != '\0')
+			if (format[i + 1])
 				flag = _iSplaceholder(&format[i + 1]);
 			else
 				return (-1);
@@ -108,11 +108,11 @@ int _check_arg(const char *format, ...)
 			i += 2;
 			continue;
 		}
+		count++;
 		_putchar(format[i]);
 		if (format[i + 1] == '%')
 			i++;
 		i++;
-		count++;
 	}
 	va_end(list);
 	return (count);
