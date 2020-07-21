@@ -107,8 +107,12 @@ int _check_arg(const char *format, ...)
 		count++;
 		_putchar(format[i]);
 		if (format[i + 1] == '%')
-			i++;
+		{
+			i += 2;
+			continue;
+		}
 		i++;
+
 	}
 	va_end(list);
 	return (count);
