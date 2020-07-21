@@ -100,10 +100,9 @@ int _check_arg(const char *format, ...)
 			{
 				count += flag(list);
 				i += 2;
-				continue;
 			}
 			if (!format[i + 1])
-				return (0);
+				return (-1);
 			count++;
 			_putchar(format[i]);
 			if (format[i + 1] == '%')
