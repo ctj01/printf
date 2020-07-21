@@ -59,6 +59,8 @@ int print_int(va_list i)
 	int j, m, n, sum, count, t;
 
 	a = malloc(sizeof(va_arg(i, int)) * 4);
+	if(a == NULL)
+		return (-1);
 	count = 0;
 	m = 1000000000;
 
