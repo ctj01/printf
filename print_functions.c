@@ -109,7 +109,9 @@ int _check_arg(const char *format, ...)
 		if (flag != NULL)
 		{
 			count += flag(list);
+			i++;
 		}
+		_putchar(format[i]);
 		i++;
 	}
 	va_end(list);
