@@ -19,7 +19,7 @@ int print_d(va_list d)
 	count = 0;
 	m = 1000000000;
 
-	n = va_arg(d, int);
+	n = va_arg(d, double);
 	t =  n / m;
 	*a = t;
 	for (j = 1; j < 10; j++)
