@@ -13,13 +13,13 @@ int print_d(va_list d)
 	int *a;
 	int j, m, n, sum, count, t;
 
-	a = malloc(sizeof(va_arg(d, double)) * 4);
+	a = malloc(sizeof(va_arg(d, int)) * 4);
 	if (a == NULL)
 		return (0);
 	count = 0;
 	m = 1000000000;
 
-	n = va_arg(d, double);
+	n = va_arg(d, int);
 	t =  n / m;
 	*a = t;
 	for (j = 1; j < 10; j++)
