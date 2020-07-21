@@ -15,7 +15,7 @@ int print_d(va_list d)
 
 	a = malloc(sizeof(va_arg(d, double)) * 4);
 	if (a == NULL)
-		return (-1);
+		return (0);
 	count = 0;
 	m = 1000000000;
 
@@ -60,7 +60,7 @@ int print_int(va_list i)
 
 	a = malloc(sizeof(va_arg(i, int)) * 4);
 	if (a == NULL)
-		return (-1);
+		return (0);
 	count = 0;
 	m = 1000000000;
 
