@@ -61,7 +61,7 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
 
 	while (print[d].c != NULL)
 	{
-		if (*print[d].c == *format)
+		if (*(print[d].c) == *format)
 		{
 			break;
 		}
@@ -100,6 +100,7 @@ int _check_arg(const char *format, ...)
 			{
 				count += flag(list);
 				i += 2;
+				continue;
 			}
 			if (!format[i + 1])
 				return (-1);
