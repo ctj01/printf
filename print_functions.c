@@ -98,11 +98,7 @@ int _check_arg(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] != '\0')
-			{
 				flag = _iSplaceholder(&format[i + 1]);
-			}
-			else
-				return (-1);
 		}
 		if (flag != NULL)
 		{
@@ -110,6 +106,8 @@ int _check_arg(const char *format, ...)
 			i += 2;
 			continue;
 		}
+		if (!format[i + 1])
+			return (-1);
 		if (format[i + 1] == '%')
 			i++;
 		_putchar(format[i]);
