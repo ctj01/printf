@@ -10,8 +10,9 @@
 
 int print_d(va_list d)
 {
-	int *a;
-	int j, m, n, sum, count, t;
+	double *a;
+	int j, sum, count, t;
+	int  n, m;
 
 
 	a = malloc(sizeof(va_arg(d, double)) * 8);
