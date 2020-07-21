@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_character - print characters
@@ -53,6 +54,8 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
 	__printf print[] = {
 		{"s", prints_char},
 		{"c", print_character},
+		{"i", print_int},
+		{"d", print_d},
 		{NULL, NULL}
 	};
 
@@ -111,3 +114,5 @@ int _check_arg(const char *format, ...)
 	va_end(list);
 	return (count);
 }
+
+
