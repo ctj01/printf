@@ -3,50 +3,60 @@
 #include <stdlib.h>
 
 /**
+ * printnum_recursion - print_numbers usin recursion
+ * @num : num to printed
+ * Return: nothing
+ */
+
+void printnum_recursion(int num)
+{
+	unsigned int n = num;
+
+	if (n  / 10 != 0)
+		printnum_recursion(n / 10);
+	_putchar(n % 10 + '0');
+}
+
+/**
+ *  _counter - get the large of integer
+ * @num : num to printed
+ * Return: len of integer
+ */
+
+int _counter(int num)
+{
+	int counter = 0;
+	unsigned int n = num;
+
+	while (n > 0)
+	{
+		n = n / 10;
+		counter++;
+	}
+	return (counter);
+}
+
+/**
  * print_d - decimal
  * @d : list arguments passed
  * Return: Always 1
  */
-
 int print_d(va_list d)
 {
-	int *a;
-	int j, sum, count, t;
-	int  n, m;
 
+	int count = 0;
+	int num = va_arg(d, int);
 
-	a = malloc(sizeof(va_arg(d, double)) * 8);
-	if (a == NULL)
-		return (0);
-	count = 0;
-	m = 1000000000;
-
-	n = va_arg(d, int);
-
-	t =  n / m;
-	*a = t;
-	for (j = 1; j < 10; j++)
+	if (num < 0)
 	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
-	if (n < 0)
-	{
+		num = -(num);
 		_putchar('-');
 		count++;
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
-	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			count++;
-		}
-	}
-	free(a);
+	if (num == 0)
+		count++;
+	count += _counter(num);
+	printnum_recursion(num);
 	return (count);
 }
 
@@ -58,39 +68,18 @@ int print_d(va_list d)
 
 int print_int(va_list i)
 {
-	int *a;
-	int j, m, n, sum, count, t;
+	int count = 0;
+	int num = va_arg(i, int);
 
-	a = malloc(sizeof(va_arg(i, int)) * 4);
-	if (a == NULL)
-		return (0);
-	count = 0;
-	m = 1000000000;
-
-	n = va_arg(i, int);
-	t =  n / m;
-	*a = t;
-	for (j = 1; j < 10; j++)
+	if (num < 0)
 	{
-		m /= 10;
-		a[j] = (n / m) % 10;
-	}
-	if (n < 0)
-	{
+		num = -(num);
 		_putchar('-');
 		count++;
-		for (j = 0; j < 10; j++)
-			a[j] *= -1;
 	}
-	for (j = 0, sum = 0; j < 10; j++)
-	{
-		sum += a[j];
-		if (sum != 0 || j == 9)
-		{
-			_putchar('0' + a[j]);
-			count++;
-		}
-	}
-	free(a);
+	if (num == 0)
+		count++;
+	count += _counter(num);
+	printnum_recursion(num);
 	return (count);
 }
