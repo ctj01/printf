@@ -86,9 +86,9 @@ int _check_arg(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-	while (format[i])
+	while (format[i] != '\0')
 	{
-		for (; format[i] != '%' && format[i]; i++)
+		for (; format[i] != '%' && format[i] != '\0'; i++)
 		{
 			_putchar(format[i]);
 			count++;
