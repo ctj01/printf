@@ -80,42 +80,37 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
 int _check_arg(const char *format, ...)
 {
 	unsigned int i = 0, count = 0;
-	va_list list;
-	int (*flag)(va_list);
+	va_list valist;
+	int (*f)(va_list);
 
-	if (format)
+	if (format == NULL)
+		return (-1);
+	va_start(valist, format);
+	while (format[i])
 	{
-		va_start(list, format);
-		while (format[i])
+		for (; format[i] != '%' && format[i]; i++)
 		{
-			for (; format[i] != '%' && format[i]; i++)
-			{
-				_putchar(format[i]);
-				count++;
-			}
-			if (!format[i])
-				return (count);
-			flag = _iSplaceholder(&format[i + 1]);
-			if (flag != NULL)
-			{
-				count += flag(list);
-				i += 2;
-				continue;
-			}
-			if (!format[i + 1])
-				return (-1);
-			count++;
 			_putchar(format[i]);
-			if (format[i + 1] == '%')
-			{
-				i += 2;
-				continue;
-			}
-			i++;
-
+			count++;
 		}
-		va_end(list);
-		return (count);
+		if (!format[i])
+			return (count);
+		f = _iSplaceholder(&format[i + 1]);
+		if (f != NULL)
+		{
+			count += f(valist);
+			i += 2;
+			continue;
+		}
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		count++;
+		if (format[i + 1] == '%')
+			i += 2;
+		else
+			i++;
 	}
-	return (-1);
+	va_end(valist);
+	return (count);
 }
