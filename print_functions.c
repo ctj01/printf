@@ -111,8 +111,9 @@ int _check_arg(const char *format, ...)
 		_putchar(format[i]);
 		if (format[i + 1] == '%')
 			i++;
+		else
+			i++;
 		count++;
-		i++;
 	}
 	va_end(list);
 	return (count);
