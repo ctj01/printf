@@ -100,17 +100,20 @@ int _check_arg(const char *format, ...)
 			if (format[i + 1])
 			{
 				flag = _iSplaceholder(&format[i + 1]);
-				i++;
 				count++;
 			}
 			else
 				return (-1);
+
 		}
+
 		if (flag != NULL)
 		{
 			count += flag(list);
-			i++;
+			i += 2;
 		}
+		if (format[i + 1] == '%')
+			i++;
 		_putchar(format[i]);
 		i++;
 	}
