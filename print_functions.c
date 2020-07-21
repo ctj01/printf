@@ -77,7 +77,7 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
  * Return: arguments passed
  */
 
-int _check_arg(const char *format, ...)
+static int _check_arg(const char *format, ...)
 {
 	unsigned int i = 0, count = 0;
 	va_list list;
