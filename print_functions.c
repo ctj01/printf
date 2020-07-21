@@ -10,9 +10,7 @@
 
 int print_character(va_list c)
 {
-	char character = va_arg(c, int);
-
-	_putchar(character);
+	_putchar(va_arg(c, int));
 	return (1);
 }
 
@@ -24,20 +22,17 @@ int print_character(va_list c)
 
 int prints_char(va_list s)
 {
-	unsigned int i = 0;
 	char *string = va_arg(s, char *);
+	int i = 0;
 
 	if (string == NULL)
-	{
-		string = "(null)";
-	}
-	while (string[i])
+	string = "(null)";
+	while (string[i] != '\0')
 	{
 		_putchar(string[i]);
 		i++;
 	}
 	return (i);
-
 }
 
 /**
