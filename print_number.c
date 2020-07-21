@@ -14,7 +14,7 @@ int print_d(va_list d)
 	int j, m, n, sum, count, t;
 
 
-	a = malloc(sizeof(va_arg(d, int)) * 4);
+	a = malloc(sizeof(va_arg(d, double)) * 8);
 	if (a == NULL)
 		return (0);
 	count = 0;
