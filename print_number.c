@@ -10,7 +10,7 @@
 
 int print_d(va_list d)
 {
-	double *a;
+	int *a;
 	int j, sum, count, t;
 	int  n, m;
 
