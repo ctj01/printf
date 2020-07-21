@@ -16,12 +16,14 @@ typedef struct _print
 
 } __printf;
 
-int (*_iSplaceholder(const char *format, ...))(va_list);
 int _check_arg(const char *format, ...);
+int (*_iSplaceholder(const char *format, ...))(va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_character(va_list c);
 int prints_char(va_list s);
 int print_int(va_list list);
 int print_d(va_list d);
+void printnum_recursion(int num);
+int _counter(int num);
 #endif
