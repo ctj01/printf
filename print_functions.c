@@ -47,7 +47,7 @@ int prints_char(va_list s)
  */
 
 
-int (*_iSplaceholder(const char *format, ...))(va_list)
+static int (*_iSplaceholder(const char *format, ...))(va_list)
 {
 	unsigned int  d = 0;
 
@@ -77,11 +77,11 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
  * Return: arguments passed
  */
 
-static int _check_arg(const char *format, ...)
+int _check_arg(const char *format, ...)
 {
 	unsigned int i = 0, count = 0;
 	va_list list;
-	int (*flag)(va_list);
+	static int (*flag)(va_list);
 
 	if (format == NULL)
 		return (-1);

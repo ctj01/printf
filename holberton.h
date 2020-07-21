@@ -16,7 +16,6 @@ typedef struct _print
 
 } __printf;
 
-int (*_iSplaceholder(const char *format, ...))(va_list);
 int _check_arg(const char *format, ...);
 int _printf(const char *format, ...);
 int _putchar(char c);
