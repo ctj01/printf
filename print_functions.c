@@ -88,28 +88,29 @@ int _check_arg(const char *format, ...)
 	va_start(list, format);
 	while (format[i])
 	{
-		for (; format[i] != '%' && format[i] != '\0'; i++)
+		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
 			count++;
 		}
 		if (!format[i])
 			return (count);
-		flag = _iSplaceholder(&format[i + 1]);
+		if (format[i] == '%')
+		{
+			if (format[i + 1])
+			{
+				flag = _iSplaceholder(&format[i + 1]);
+				i++;
+				count++;
+			}
+			else
+				return (-1);
+		}
 		if (flag != NULL)
 		{
 			count += flag(list);
-			i += 2;
-			continue;
 		}
-		if (!format[i + 1])
-			return (-1);
-		_putchar(format[i]);
-		count++;
-		if (format[i + 1] == '%')
-			i += 2;
-		else
-			i++;
+		i++;
 	}
 	va_end(list);
 	return (count);
