@@ -9,11 +9,14 @@
 This is simple clone of _printf function with basic functionality
 .SH OPTIONS
 .B %c
-- prints ARGUMENTS Type character
+- the int argument is converted to an unsigned char, and the resulting character is written.
 .br
 .B %s
 .br
-- prints a string and return null if arguments does not passed
+- The const char * argument is expected to be a pointer to an array of character type (pointer to a string). Characters from the array are
+  written up to (but not including) a terminating null byte ('\0'); if a precision is specified, no more than the number specified are written.
+  If a precision is given, no null byte need be present; if the precision is not specified, or is greater than the size of the array, the array
+  must contain a terminating null byte.
 .br
 .B %d, %i
 .br
@@ -34,9 +37,9 @@ int main(void)
 	return (0);
 
 }
-.B %i
+.B %b
 - The special form %b is used to format the printing of an integer in binary format. Only the low byte of the number is printed.
 .br
 .SH AUTHOR
-Cristian mendoza
+Cristian mendoza student at Holberton school
 
