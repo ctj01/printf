@@ -11,7 +11,7 @@
 int print_binary(va_list b)
 {
 	int count, i = 0;
-	unsigned int a[100];
+	unsigned int a[10];
 	unsigned int num = va_arg(b, unsigned int);
 
 	for (i = 0; num > 0; i++)
