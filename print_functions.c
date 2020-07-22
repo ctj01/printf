@@ -51,6 +51,7 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
 		{"c", print_character},
 		{"i", print_int},
 		{"d", print_d},
+		{"b", print_binary},
 		{NULL, NULL}
 	};
 
