@@ -16,20 +16,17 @@ int print_binary(va_list b)
 
 	num = va_arg(b, unsigned int);
 
-	if (num)
+	for (i = 0; num > 0; i++)
 	{
-		for (i = 0; num > 0; i++)
-		{
-			a[i] = num % 2;
-			num = num / 2;
-			count++;
-		}
-		for (i = i - 1; i >= 0; i--)
-		{
-			_putchar(a[i] + '0');
-		}
-		return (count);
+		a[i] = num % 2;
+		num = num / 2;
 	}
-	return (1);
+	for (i = i -1; i >= 0; i--)
+	{
+		_putchar(a[i] + '0');
+		count++;
+	}
+	count = count - 1;
+	return (count);
 
 }
