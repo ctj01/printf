@@ -11,19 +11,21 @@
 int print_binary(va_list b)
 {
 	int count, i = 0;
-	unsigned int a[1000];
+	unsigned int a[100];
 	unsigned int num = va_arg(b, unsigned int);
-
-	for (i = 0; num > 0; i++)
+	if (num)
 	{
-		a[i] = num % 2;
-		num = num / 2;
-		count++;
-	}
-	for (i = i - 1; i >= 0; i--)
-	{
-		_putchar(a[i] + '0');
-		count++;
+		for (i = 0; num > 0; i++)
+		{
+			a[i] = num % 2;
+			num = num / 2;
+			count++;
+		}
+		for (i = i - 1; i >= 0; i--)
+		{
+			_putchar(a[i] + '0');
+			count++;
+		}
 	}
 
 	return (count);
