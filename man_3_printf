@@ -34,7 +34,9 @@ int main(void)
 	return (0);
 
 }
-
+.B %i
+- The special form %b is used to format the printing of an integer in binary format. Only the low byte of the number is printed.
+.br
 .SH AUTHOR
 Cristian mendoza
 
