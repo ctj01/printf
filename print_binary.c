@@ -12,7 +12,9 @@ int print_binary(va_list b)
 {
 	int count, i = 0;
 	unsigned int a[100];
-	unsigned int num = va_arg(b, unsigned int);
+	unsigned int num;
+
+	num = va_arg(b, unsigned int);
 
 	if (num)
 	{
