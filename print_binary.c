@@ -11,14 +11,16 @@
 int print_binary(va_list b)
 {
 	int count, i;
-	unsigned int a[100];
+	unsigned int *a;
+
 	unsigned int num;
 
 	num = va_arg(b, unsigned int);
+	a = malloc(sizeof(num));
 
 	for (i = 0; num > 0; i++)
 	{
-		a[i] = num % 2;
+		a[i]= num % 2;
 		num = num / 2;
 	}
 	for (i = i -1; i >= 0; i--)
@@ -26,7 +28,7 @@ int print_binary(va_list b)
 		_putchar(a[i] + '0');
 		count++;
 	}
-	count = count - 1;
+	free(a);
 	return (count);
 
 }
