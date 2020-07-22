@@ -10,8 +10,8 @@
 
 int print_binary(va_list b)
 {
-	int count = 0;
-	unsigned int a[100], i;
+	int count, i = 0;
+	unsigned int a[100];
 	unsigned int num = va_arg(b, unsigned int);
 
 	for (i = 0; num > 0; i++)
