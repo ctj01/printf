@@ -28,6 +28,6 @@ int print_binary(va_list b)
 		}
 		return (count);
 	}
-	return (0);
+	return (1);
 
 }
