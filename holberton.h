@@ -28,4 +28,5 @@ void printnum_recursion(int num);
 int _counter(int num);
 int print_binary(va_list b);
 int binary_recursion(unsigned int num);
+
 #endif
