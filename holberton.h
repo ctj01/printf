@@ -26,4 +26,5 @@ int print_int(va_list list);
 int print_d(va_list d);
 void printnum_recursion(int num);
 int _counter(int num);
+int print_binary(va_list b);
 #endif
