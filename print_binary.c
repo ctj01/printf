@@ -10,7 +10,7 @@
 
 int print_binary(va_list b)
 {
-	int count, i = 0;
+	int count, i;
 	unsigned int a[100];
 	unsigned int num;
 
