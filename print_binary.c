@@ -13,6 +13,7 @@ int print_binary(va_list b)
 	int count, i = 0;
 	unsigned int a[100];
 	unsigned int num = va_arg(b, unsigned int);
+	count = 0;
 	if (num)
 	{
 		for (i = 0; num > 0; i++)
@@ -26,7 +27,10 @@ int print_binary(va_list b)
 			_putchar(a[i] + '0');
 			count++;
 		}
+		return (count);
 	}
-
+	if(num == 0)
+		count++;
 	return (count);
+
 }
