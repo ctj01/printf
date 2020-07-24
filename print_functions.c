@@ -10,7 +10,9 @@
 
 int print_character(va_list c)
 {
-	_putchar(va_arg(c, int));
+	char character = va_arg(c, int);
+
+	_putchar(character);
 	return (1);
 }
 
@@ -22,17 +24,20 @@ int print_character(va_list c)
 
 int prints_char(va_list s)
 {
+	unsigned int i = 0;
 	char *string = va_arg(s, char *);
-	int i = 0;
 
 	if (string == NULL)
-	string = "(null)";
-	while (string[i] != '\0')
+	{
+		string = "(null)";
+	}
+	while (string[i])
 	{
 		_putchar(string[i]);
 		i++;
 	}
 	return (i);
+
 }
 
 /**
@@ -68,21 +73,6 @@ int (*_iSplaceholder(const char *format, ...))(va_list)
 }
 
 /**
- * countString - check_arguments passed on prinf function
- * @format: format passed
- * Return: arguments passed
- */
-
-int countString(const char *format)
-{
-	unsigned int i = 0;
-
-	while (format[i])
-		i++;
-	return (i);
-}
-
-/**
  * _check_arg - check_arguments passed on prinf function
  * @format: format passed
  * Return: arguments passed
@@ -95,29 +85,25 @@ int _check_arg(const char *format, ...)
 	int (*flag)(va_list);
 
 	va_start(list, format);
-	if(!format)
-		return (-1);
 	while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
-			count = countString(format);
-		}
-		if (format[i] == '%')
-		{
-			if (format[i + 1])
-				flag = _iSplaceholder(&format[i + 1]);
-			else
-				return (-1);
+			count++;
 		}
 		if (!format[i])
 			return (count);
+		flag = _iSplaceholder(&format[i + 1]);
 		if (flag != NULL)
 		{
 			count += flag(list);
 			i += 2;
+			continue;
 		}
+		if (!format[i + 1])
+			return (-1);
+		count++;
 		_putchar(format[i]);
 		if (format[i + 1] == '%')
 		{
@@ -125,7 +111,7 @@ int _check_arg(const char *format, ...)
 			continue;
 		}
 		i++;
-		count++;
+
 	}
 	va_end(list);
 	return (count);
