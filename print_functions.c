@@ -83,38 +83,39 @@ int _check_arg(const char *format, ...)
 	unsigned int i = 0, count = 0;
 	va_list list;
 	int (*flag)(va_list);
-
-	if(format == NULL)
-		return (-1);
-	va_start(list, format);
-	while (format[i])
+	if(format)
 	{
-		for (; format[i] != '%' && format[i]; i++)
+		va_start(list, format);
+		while (format[i])
 		{
-			_putchar(format[i]);
+			for (; format[i] != '%' && format[i]; i++)
+			{
+				_putchar(format[i]);
+				count++;
+			}
+			if (!format[i])
+				return (count);
+			flag = _iSplaceholder(&format[i + 1]);
+			if (flag != NULL)
+			{
+				count += flag(list);
+				i += 2;
+				continue;
+			}
+			if (!format[i + 1])
+				return (-1);
 			count++;
-		}
-		if (!format[i])
-			return (count);
-		flag = _iSplaceholder(&format[i + 1]);
-		if (flag != NULL)
-		{
-			count += flag(list);
-			i += 2;
-			continue;
-		}
-		if (!format[i + 1])
-			return (-1);
-		count++;
-		_putchar(format[i]);
-		if (format[i + 1] == '%')
-		{
-			i += 2;
-			continue;
-		}
-		i++;
+			_putchar(format[i]);
+			if (format[i + 1] == '%')
+			{
+				i += 2;
+				continue;
+			}
+			i++;
 
+		}
+		va_end(list);
+		return (count);
 	}
-	va_end(list);
-	return (count);
+	return (-1);
 }
