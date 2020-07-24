@@ -95,6 +95,8 @@ int _check_arg(const char *format, ...)
 	int (*flag)(va_list);
 
 	va_start(list, format);
+	if(!format)
+		return (-1);
 	while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
