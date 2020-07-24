@@ -85,7 +85,7 @@ int _check_arg(const char *format, ...)
 	int (*flag)(va_list);
 
 	if(!format)
-		return (0);
+		return (1);
 	va_start(list, format);
 	while (format[i])
 	{
